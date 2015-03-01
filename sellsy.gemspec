@@ -34,6 +34,7 @@ Gem::Specification.new do |s|
     "lib/sellsy/api.rb",
     "lib/sellsy/clients.rb",
     "lib/sellsy/invoices.rb",
+    "sellsy.gemspec",
     "test/helper.rb",
     "test/test_sellsy.rb"
   ]
@@ -51,7 +52,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 2.0.1"])
+      s.add_development_dependency(%q<jeweler>, ["~> 2.0"])
       s.add_development_dependency(%q<simplecov>, [">= 0"])
     else
       s.add_dependency(%q<multi_json>, ["~> 1.10.0"])
@@ -59,7 +60,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
-      s.add_dependency(%q<jeweler>, ["~> 2.0.1"])
+      s.add_dependency(%q<jeweler>, ["~> 2.0"])
       s.add_dependency(%q<simplecov>, [">= 0"])
     end
   else
@@ -68,7 +69,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])
-    s.add_dependency(%q<jeweler>, ["~> 2.0.1"])
+    s.add_dependency(%q<jeweler>, ["~> 2.0"])
     s.add_dependency(%q<simplecov>, [">= 0"])
   end
 end
