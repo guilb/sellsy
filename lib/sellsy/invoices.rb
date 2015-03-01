@@ -115,9 +115,6 @@ module Sellsy
   end
 
   class Invoices
-    attr_accessor :estimates
-    attr_accessor :invoices
-    
     def self.all
       command = {
           'method' => 'Document.getList',
