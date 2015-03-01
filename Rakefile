@@ -17,10 +17,10 @@ Jeweler::Tasks.new do |gem|
   gem.name = "sellsy"
   gem.homepage = "http://github.com/faustus7/sellsy"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Sellsy Client API}
+  gem.description = %Q{Ruby Gem for Sellsy}
   gem.email = "jens@lacazoo.com"
-  gem.authors = ["Jens Stammers"]
+  gem.authors = ["Jens Stamm"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
