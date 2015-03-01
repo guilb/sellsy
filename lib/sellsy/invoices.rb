@@ -10,45 +10,7 @@ module Sellsy
     attr_accessor :unit_amount
     attr_accessor :tax_rate
 
-    def create
-
-    end
-
-    def update
-
-    end
-  end
-
-  class Invoices
-    attr_accessor :estimates
-    attr_accessor :invoices
-
-    def initialize
-    end
-
-    def self.all
-      command = {
-          'method' => 'Document.getList',
-          'params' => {
-              'doctype' => 'invoice'
-          }
-      }
-
-      response = MultiJson.load(Sellsy::Api.request command)
-
-      invoices = []
-#      ap response
-      response['response']['result'].each do |key, value|
-        invoice = Invoice.new
-        invoice.id = value['id']
-        invoice.amount = value['rowsAmount']
-        invoices << invoice
-      end
-
-      return invoices
-    end
-
-    def <<(invoice)
+    def create(invoice)
       command = {
           'method' => 'Document.create',
           'params' => {
@@ -145,6 +107,37 @@ module Sellsy
       }
 
       Sellsy::Api.request command
+    end
+
+    def update
+
+    end
+  end
+
+  class Invoices
+    attr_accessor :estimates
+    attr_accessor :invoices
+    
+    def self.all
+      command = {
+          'method' => 'Document.getList',
+          'params' => {
+              'doctype' => 'invoice'
+          }
+      }
+
+      response = MultiJson.load(Sellsy::Api.request command)
+
+      invoices = []
+
+      response['response']['result'].each do |key, value|
+        invoice = Invoice.new
+        invoice.id = value['id']
+        invoice.amount = value['rowsAmount']
+        invoices << invoice
+      end
+
+      return invoices
     end
   end
 end

@@ -18,13 +18,19 @@ class TestSellsy < Minitest::Test
     refute_equal 0, @clients.length
   end
 
-  def test_that_client_is_created
+  def test_that_client_is_created_and_found
     @client = Sellsy::Client.new
     @client.name = "Test Company #{Random.new_seed}"
 
     ap @client
 
     assert @client.create
+
+    @client2 = Sellsy::Clients.find(@client.id)
+
+    ap @client2
+
+    assert_kind_of Sellsy::Client, @client2
   end
 
   def test_that_all_invoices_are_listed
