@@ -29,12 +29,12 @@ module Sellsy
     end
 
     def self.info
-      payload = {
+      command = {
           :method => 'Infos.getInfos',
           :params => {}
       }
 
-      self.request payload
+      MultiJson.load(self.request command)
     end
 
     def self.request(payload)
@@ -43,7 +43,7 @@ module Sellsy
           'io_mode' => 'json',
           'do_in' => payload.to_json
       }
-      
+
 #      RestClient.log = 'stdout'
       RestClient.post 'https://apifeed.sellsy.com/0/', {:request => 1, :io_mode => 'json', 'do_in' => payload.to_json, :multipart => true}, {:authorization => self.authentication_header}
     end
