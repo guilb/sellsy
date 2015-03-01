@@ -12,11 +12,11 @@ group :development do
   gem "shoulda", ">= 0"
   gem "rdoc", "~> 3.12"
   gem "bundler", "~> 1.0"
-  gem "jeweler", "~> 2.0.1"
+  gem "jeweler", "~> 2.0"
   gem "simplecov", ">= 0"
 end
 
 group :test do
-  gem "awesome_print", "~> 1.6.0"
-  gem "minitest", "~> 5.5.0"
+  gem "awesome_print", "~> 1.6"
+  gem "minitest", "~> 5.5"
 end

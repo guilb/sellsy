@@ -8,11 +8,9 @@ class TestSellsy < Minitest::Test
       config.user_token = ENV['SELLSY_USER_TOKEN']
       config.user_secret = ENV['SELLSY_USER_SECRET']
     end
-
-    @invoices = Sellsy
   end
 
-  def test_that_all_clients
+  def test_that_all_clients_are_listed
     @clients = Sellsy::Clients.all
 
     ap @clients
@@ -20,7 +18,16 @@ class TestSellsy < Minitest::Test
     refute_equal 0, @clients.length
   end
 
-  def test_that_all_invocies
+  def test_that_client_is_created
+    @client = Sellsy::Client.new
+    @client.name = "Test Company #{Random.new_seed}"
+
+    ap @client
+
+    assert @client.create
+  end
+
+  def test_that_all_invoices_are_listed
     @invoices = Sellsy::Invoices.all
 
     ap @invoices

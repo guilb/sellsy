@@ -5,9 +5,23 @@ module Sellsy
     attr_accessor :id
     attr_accessor :name
 
-    def initialize(id, name)
-      @id = id
-      @name = name
+    def create
+      command = {
+          'method' => 'Client.create',
+          'params' => {
+              'third' => {
+                  'name'			=> @name
+              }
+          }
+      }
+
+      response = MultiJson.load(Sellsy::Api.request command)
+
+      return response['status'] == 'success'
+    end
+
+    def update
+
     end
   end
 
@@ -22,7 +36,10 @@ module Sellsy
 
       clients = []
       response['response']['result'].each do |key, value|
-        clients << Client.new(key, value['name'])
+        client = Client.new
+        client.id = key
+        client.name = value['fullName']
+        clients << client
       end
 
       return clients

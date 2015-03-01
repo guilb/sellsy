@@ -9,6 +9,14 @@ module Sellsy
     attr_accessor :amount
     attr_accessor :unit_amount
     attr_accessor :tax_rate
+
+    def create
+
+    end
+
+    def update
+
+    end
   end
 
   class Invoices
