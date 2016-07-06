@@ -3,14 +3,17 @@ require 'multi_json'
 module Sellsy
   class Client
     attr_accessor :id
-    attr_accessor :name
+    attr_accessor :name, :type, :joindate, :email
 
     def create
       command = {
           'method' => 'Client.create',
           'params' => {
               'third' => {
-                  'name'			=> @name
+                  'name'			=> @name,
+                  'joindate'	    => @joindate,
+                  'type'			=> @type,
+                  'email'			=> @email
               }
           }
       }
@@ -43,6 +46,8 @@ module Sellsy
       client = Client.new
       client.id = value['id']
       client.name = value['name']
+      client.joindate = value['joindate']
+      client.type = value['type']
 
       return client
     end
@@ -64,6 +69,8 @@ module Sellsy
         client = Client.new
         client.id = key
         client.name = value['fullName']
+        client.joindate = value['joindate']
+        client.type = value['type']
         clients << client
       end
 

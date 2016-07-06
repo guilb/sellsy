@@ -1,3 +1,5 @@
 require 'sellsy/api'
 require 'sellsy/clients'
 require 'sellsy/invoices'
+require 'sellsy/addresses'
+require 'sellsy/contacts'
