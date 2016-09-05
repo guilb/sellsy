@@ -23,7 +23,7 @@ module Sellsy
 
       response = MultiJson.load(Sellsy::Api.request command)
 
-      @id = response['response']['address_id']
+      @id = response['response']['address_id'] if response['response']
 
       return response['status'] == 'success'
     end
@@ -39,16 +39,18 @@ module Sellsy
       }
 
       response = MultiJson.load(Sellsy::Api.request command)
-
-      value = response['response']
       address = Address.new
-      address.id = key
-      address.part1 = value['part1']
-      address.town = value['town']
-      address.country_code = value['countrycode']
-      address.linkedid = value['linkedid']
-      address.linkedtype = value['linkedtype']
-      address.zip = value['zip']
+
+      if response['response']
+        value = response['response']
+        address.id = key
+        address.part1 = value['part1']
+        address.town = value['town']
+        address.country_code = value['countrycode']
+        address.linkedid = value['linkedid']
+        address.linkedtype = value['linkedtype']
+        address.zip = value['zip']
+      end
 
       return address
     end
@@ -62,16 +64,19 @@ module Sellsy
       response = MultiJson.load(Sellsy::Api.request command)
 
       addresses = []
-      response['response']['result'].each do |key, value|
-        address = Address.new
-        address.id = key
-        address.part1 = value['part1']
-        address.town = value['town']
-        address.country_code = value['countrycode']
-        address.linkedid = value['linkedid']
-        address.linkedtype = value['linkedtype']
-        address.zip = value['zip']
-        addresses << address
+
+      if response['response']
+        response['response']['result'].each do |key, value|
+          address = Address.new
+          address.id = key
+          address.part1 = value['part1']
+          address.town = value['town']
+          address.country_code = value['countrycode']
+          address.linkedid = value['linkedid']
+          address.linkedtype = value['linkedtype']
+          address.zip = value['zip']
+          addresses << address
+        end
       end
 
       return addresses

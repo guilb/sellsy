@@ -20,7 +20,7 @@ module Sellsy
 
       response = MultiJson.load(Sellsy::Api.request command)
 
-      @id = response['response']['client_id']
+      @id = response['response']['client_id'] if response['response']
 
       return response['status'] == 'success'
     end
@@ -41,13 +41,15 @@ module Sellsy
 
       response = MultiJson.load(Sellsy::Api.request command)
 
-      value = response['response']['client']
-
       client = Client.new
-      client.id = value['id']
-      client.name = value['name']
-      client.joindate = value['joindate']
-      client.type = value['type']
+
+      if response['response']
+        value = response['response']['client']
+        client.id = value['id']
+        client.name = value['name']
+        client.joindate = value['joindate']
+        client.type = value['type']
+      end
 
       return client
     end
@@ -65,13 +67,15 @@ module Sellsy
       response = MultiJson.load(Sellsy::Api.request command)
 
       clients = []
-      response['response']['result'].each do |key, value|
-        client = Client.new
-        client.id = key
-        client.name = value['fullName']
-        client.joindate = value['joindate']
-        client.type = value['type']
-        clients << client
+      if response['response']
+        response['response']['result'].each do |key, value|
+          client = Client.new
+          client.id = key
+          client.name = value['fullName']
+          client.joindate = value['joindate']
+          client.type = value['type']
+          clients << client
+        end
       end
 
       return clients
@@ -86,11 +90,13 @@ module Sellsy
       response = MultiJson.load(Sellsy::Api.request command)
 
       clients = []
-      response['response']['result'].each do |key, value|
-        client = Client.new
-        client.id = key
-        client.name = value['fullName']
-        clients << client
+      if response['response']
+        response['response']['result'].each do |key, value|
+          client = Client.new
+          client.id = key
+          client.name = value['fullName']
+          clients << client
+        end
       end
 
       return clients

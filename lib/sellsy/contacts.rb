@@ -21,7 +21,7 @@ module Sellsy
 
       response = MultiJson.load(Sellsy::Api.request command)
 
-      @id = response['response']['id']
+      @id = response['response']['id'] if response['response']
 
       return response['status'] == 'success'
     end
@@ -35,11 +35,12 @@ module Sellsy
       }
 
       response = MultiJson.load(Sellsy::Api.request command)
-
-      value = response['response']
-
       contact = Contact.new
-      contact.id = value['id']
+
+      if response['response']
+        value = response['response']
+        contact.id = value['id']
+      end
 
       return contact
     end
@@ -53,11 +54,12 @@ module Sellsy
       }
 
       response = MultiJson.load(Sellsy::Api.request command)
-
-      value = response['response']
-
       client = Contact.new
-      client.id = value['id']
+
+      if response['response']
+        value = response['response']
+        client.id = value['id']
+      end
 
       return client
     end
