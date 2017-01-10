@@ -59,6 +59,8 @@ module Sellsy
           'method' => 'Opportunities.getList',
           'params' => params
       }
+      
+      response = MultiJson.load(Sellsy::Api.request command)
 
       opportunities = []
       if response['response']
@@ -75,7 +77,7 @@ module Sellsy
 
       return opportunities
     end
-    
+
     def self.all
       command = {
         'method' => 'Opportunities.getList',
