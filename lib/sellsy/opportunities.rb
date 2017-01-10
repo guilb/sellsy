@@ -94,10 +94,10 @@ module Sellsy
         response['response']['result'].each do |key, value|
           opportunity = Opportunity.new
           opportunity.id = key
-          opportunity.status = value['status']
-          opportunity.name = value['name']
-          opportunity.ident = value['ident']
-          opportunity.signed = value['signed']
+          opportunity.sellsy_status = value['status']
+          opportunity.sellsy_name = value['name']
+          opportunity.sellsy_ident = value['ident']
+          opportunity.sellsy_signed = value['signed']
           opportunities << opportunity
         end
       end
