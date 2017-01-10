@@ -74,7 +74,8 @@ module Sellsy
       end
 
       return opportunities
-
+    end
+    
     def self.all
       command = {
         'method' => 'Opportunities.getList',
