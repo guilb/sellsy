@@ -54,12 +54,10 @@ module Sellsy
     #   return client
     # end
 
-    def self.search(params)
+    def self.search(query)
       command = {
           'method' => 'Opportunities.getList',
-          'params' => {
-              params
-          }
+          'params' => params
       }
 
       opportunities = []
@@ -76,7 +74,6 @@ module Sellsy
       end
 
       return opportunities
-    end
 
     def self.all
       command = {
