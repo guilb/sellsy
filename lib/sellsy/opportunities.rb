@@ -54,32 +54,28 @@ module Sellsy
     #   return client
     # end
 
-    # def self.search(query)
-    #   command = {
-    #       'method' => 'Client.getList',
-    #       'params' => {
-    #           'search' => {
-    #               'contains' => query
-    #           }
-    #       }
-    #   }
+    def self.search(params)
+      command = {
+          'method' => 'Opportunities.getList',
+          'params' => {
+              params
+          }
+      }
 
-    #   response = MultiJson.load(Sellsy::Api.request command)
+      opportunities = []
+      if response['response']
+        response['response']['result'].each do |key, value|
+          opportunity = Opportunity.new
+          opportunity.id = key
+          opportunity.sellsy_status = value['status']
+          opportunity.sellsy_name = value['name']
+          opportunity.sellsy_ident = value['ident']
+          opportunity.sellsy_signed = value['signed']
+          opportunities << opportunity
+        end
+      end
 
-    #   clients = []
-    #   if response['response']
-    #     response['response']['result'].each do |key, value|
-    #       client = Client.new
-    #       client.id = key
-    #       client.name = value['fullName']
-    #       client.joindate = value['joindate']
-    #       client.type = value['type']
-    #       clients << client
-    #     end
-    #   end
-
-    #   return clients
-    # end
+      return opportunities
 
     def self.all
       command = {
