@@ -94,8 +94,8 @@ module Sellsy
         response['response']['result'].each do |key, value|
           opportunity = Opportunity.new
           opportunity.id = key
-          opportunity.name = value['name']
           opportunity.status = value['status']
+          opportunity.name = value['name']
           opportunity.ident = value['ident']
           opportunity.signed = value['signed']
           opportunities << opportunity
