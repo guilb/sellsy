@@ -58,7 +58,6 @@ module Sellsy
       command = {
           'method' => 'Client.getList',
           'params' => params
-          }
       }
 
       response = MultiJson.load(Sellsy::Api.request command)
