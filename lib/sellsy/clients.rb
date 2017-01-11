@@ -68,8 +68,6 @@ module Sellsy
           client = Client.new
           client.id = key
           client.name = value['fullName']
-          client.joindate = value['joindate']
-          client.type = value['type']
           clients << client
         end
       end
