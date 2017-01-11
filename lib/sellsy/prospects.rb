@@ -1,7 +1,7 @@
 require 'multi_json'
 
 module Sellsy
-  # class Client
+  class Prospect
   #   attr_accessor :id
   #   attr_accessor :name, :type, :joindate, :email
 
@@ -28,7 +28,7 @@ module Sellsy
   #   def update
 
   #   end
-  # end
+  end
 
   class Prospects
     # def self.find(id)
