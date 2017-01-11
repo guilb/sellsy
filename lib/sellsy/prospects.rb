@@ -2,8 +2,8 @@ require 'multi_json'
 
 module Sellsy
   class Prospect
-  #   attr_accessor :id
-  #   attr_accessor :name, :type, :joindate, :email
+    attr_accessor :id
+    attr_accessor :name
 
   #   def create
   #     command = {
