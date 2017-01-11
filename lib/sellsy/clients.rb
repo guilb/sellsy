@@ -57,10 +57,7 @@ module Sellsy
     def self.search(query)
       command = {
           'method' => 'Client.getList',
-          'params' => {
-              'search' => {
-                  'contains' => query
-              }
+          'params' => params
           }
       }
 
