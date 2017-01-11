@@ -54,7 +54,7 @@ module Sellsy
       return client
     end
 
-    def self.search(query)
+    def self.search(params)
       command = {
           'method' => 'Client.getList',
           'params' => params
