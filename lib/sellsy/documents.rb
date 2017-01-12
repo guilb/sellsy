@@ -62,7 +62,7 @@ module Sellsy
                   # 'currency' => 'currency',
                   'doclayout' => '52100',
                   # 'payMediums' => 'payMediums',
-                  'docspeakerStaffId' => doc.author
+                  'docspeakerStaffId' => document.author
               },
               # 'paydate' => {
               # 'id' => 'paydate_id',
@@ -77,7 +77,8 @@ module Sellsy
               # 'shipaddress' => {
               #     'id' => 'shipaddress_id'
               # },
-              'row' => document.rows
+              #'row' => document.rows
+              'row' => {}
           }
       }
 
