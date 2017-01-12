@@ -8,7 +8,7 @@ module Sellsy
 
     def self.getlink(docid,doctype)
       command = {
-          'method' => 'Documents.getPublicLink_v2',
+          'method' => 'Document.getPublicLink_v2',
           'params' => {
                'doctype' => doctype,
         	   'docid' => docid
