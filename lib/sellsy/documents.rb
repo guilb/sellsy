@@ -49,7 +49,7 @@ module Sellsy
               'document' => {
                   'doctype' => document.type,
                   # 'parentId' => 'parentId',
-                  'thirdid' => document.client_id
+                  'thirdid' => document.client_id,
                   # 'displayedDate' => 'displayedDate',
                   'subject' => 'document_subject',
                   'notes' => 'document_notes',
@@ -63,7 +63,8 @@ module Sellsy
                   'doclayout' => '52100',
                   # 'payMediums' => 'payMediums',
                   'docspeakerStaffId' => document.author
-              },
+              #},
+              }
               # 'paydate' => {
               # 'id' => 'paydate_id',
               # 'xdays' => 'paydate_xdays',
@@ -78,7 +79,7 @@ module Sellsy
               #     'id' => 'shipaddress_id'
               # },
               #'row' => document.rows
-              'row' => {}
+              #'row' => {}
           }
       }
 
