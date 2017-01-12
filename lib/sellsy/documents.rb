@@ -16,7 +16,7 @@ module Sellsy
       }
 
       response = MultiJson.load(Sellsy::Api.request command)
-      Document = Document.new
+      #document = Document.new
 
       if response['response']
         value = response['response']
