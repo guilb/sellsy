@@ -85,9 +85,9 @@ module Sellsy
 
 		response = MultiJson.load(Sellsy::Api.request command)
 
-		@company_id = response['response']['thirdid'] if response['response']
-		puts @company_id
-		return response['status'] == 'success'
+		@doc_id = response['response']['doc_id'] if response['response']
+		puts "doc_id = "+@doc_id
+		return @doc_id
     end
 
 
