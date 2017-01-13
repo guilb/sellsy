@@ -134,6 +134,7 @@ module Sellsy
       }
       
       response = MultiJson.load(Sellsy::Api.request command)
+      puts response.inspect
 
       opportunities = []
       if response['response']
