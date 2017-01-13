@@ -134,16 +134,16 @@ module Sellsy
       opportunities = []
       if response['response']
         response['response']['result'].each do |key, value|
-          opportunity = Opportunity.new
-          opportunity.id = key
-          opportunity.ident = value['ident']
-          opportunity.step = value['step']
-          opportunity.subject = value['subject']
-          opportunities << opportunity
+          document = Documents.new
+          document.id = key
+          document.ident = value['ident']
+          document.step = value['step']
+          document.subject = value['subject']
+          documents << document
         end
       end
 
-      return opportunities
+      return documents
     end
   end
 end
