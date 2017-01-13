@@ -140,7 +140,7 @@ module Sellsy
       response = MultiJson.load(Sellsy::Api.request command)
       puts response.inspect
 
-      opportunities = []
+      documents = []
       if response['response']
         response['response']['result'].each do |key, value|
           document = Document.new
