@@ -84,7 +84,7 @@ module Sellsy
       }
 
 		response = MultiJson.load(Sellsy::Api.request command)
-
+    puts response.inspect
 		@doc_id = response['response']['doc_id'] if response['response']
 		puts "doc_id = "+ @doc_id.to_s
 		return @doc_id
