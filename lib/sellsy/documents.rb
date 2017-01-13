@@ -143,7 +143,7 @@ module Sellsy
       opportunities = []
       if response['response']
         response['response']['result'].each do |key, value|
-          document = Documents.new
+          document = Document.new
           document.id = key
           document.ident = value['ident']
           document.step = value['step']
