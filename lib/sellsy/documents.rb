@@ -123,7 +123,28 @@ module Sellsy
   end
 
   class Documents
+    def self.search(params)
+      command = {
+          'method' => 'Documents.getList',
+          'params' => params
+      }
+      
+      response = MultiJson.load(Sellsy::Api.request command)
 
+      opportunities = []
+      if response['response']
+        response['response']['result'].each do |key, value|
+          opportunity = Opportunity.new
+          opportunity.id = key
+          opportunity.ident = value['ident']
+          opportunity.step = value['step']
+          opportunity.subject = value['subject']
+          opportunities << opportunity
+        end
+      end
+
+      return opportunities
+    end
   end
 end
 
