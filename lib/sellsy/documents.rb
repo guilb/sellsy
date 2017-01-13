@@ -127,13 +127,10 @@ module Sellsy
   end
 
   class Documents
-    attr_accessor :id
-    attr_accessor :ident
-    attr_accessor :step
-    attr_accessor :subject
+
     def self.search(params)
       command = {
-          'method' => 'Documents.getList',
+          'method' => 'Document.getList',
           'params' => params
       }
       puts params
