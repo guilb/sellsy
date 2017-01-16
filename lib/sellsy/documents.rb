@@ -80,9 +80,9 @@ module Sellsy
           'method' => 'Document.create',
           'params' => {
               'document' => {
-                  'doctype' => document.type,
+                  'doctype' => document.doctype,
                   # 'parentId' => 'parentId',
-                  'thirdid' => document.client_id,
+                  'thirdid' => document.thirdid,
                   # 'displayedDate' => 'displayedDate',
                   'subject' => 'document_subject',
                   'notes' => 'document_notes',
