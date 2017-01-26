@@ -6,7 +6,7 @@
 
 Gem::Specification.new do |s|
   s.name = "sellsy"
-  s.version = "0.3.0.44"
+  s.version = "0.3.0.45"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
@@ -31,9 +31,14 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/sellsy.rb",
+    "lib/sellsy/addresses.rb",
     "lib/sellsy/api.rb",
     "lib/sellsy/clients.rb",
+    "lib/sellsy/contacts.rb",
+    "lib/sellsy/documents.rb",
     "lib/sellsy/invoices.rb",
+    "lib/sellsy/opportunities.rb",
+    "lib/sellsy/prospects.rb",
     "sellsy.gemspec",
     "test/helper.rb",
     "test/test_sellsy.rb"
