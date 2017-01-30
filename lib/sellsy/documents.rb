@@ -100,7 +100,7 @@ module Sellsy
                   # 'payMediums' => 'payMediums',
                   'docspeakerStaffId' => document.author
               #},
-              }
+              },
               # 'paydate' => {
               # 'id' => 'paydate_id',
               # 'xdays' => 'paydate_xdays',
