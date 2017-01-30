@@ -113,7 +113,7 @@ module Sellsy
               # 'shipaddress' => {
               #     'id' => 'shipaddress_id'
               # },
-              #'row' => document.rows
+              'row' => document.rows
               #'row' => {}
           }
       }
