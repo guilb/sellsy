@@ -158,6 +158,32 @@ module Sellsy
 
       return documents
     end
+
+    def self.getLinkedDocuments(docid,doctype)
+      command = {
+          'method' => 'Document.getLinkedDocuments',
+          'params' => {
+            'doctype' => doctype,
+            'docid' => docid
+          }
+      }
+      response = MultiJson.load(Sellsy::Api.request command)
+      puts response['response'].inspect
+      if response['response']
+        response['response']['result'].each do |key, value|
+          document = Document.new
+          document.id = value['id']
+          document.ident = value['ident']
+          document.step = value['step']
+          document.subject = value['subject']
+          documents << document
+        end
+      end
+
+      return documents
+    end
+
+
   end
 end
 
