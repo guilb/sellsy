@@ -169,11 +169,10 @@ module Sellsy
       }
       response = MultiJson.load(Sellsy::Api.request command)
       puts "response"
-      puts response.inspect
-      puts response['response'].inspect
+      puts response['response']['directChildren'].inspect
       documents = []
       if response['response']
-        response['response'].each do |key, value|
+        response['response']['directChildren'].each do |key, value|
           document = Document.new
           document.id = value['id'].to_i
           document.ident = value['ident']
