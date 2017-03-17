@@ -173,7 +173,7 @@ module Sellsy
       puts response['response'].inspect
       documents = []
       if response['response']
-        response['response']['result'].each do |key, value|
+        response['response'].each do |key, value|
           document = Document.new
           document.id = value['id']
           document.ident = value['ident']
