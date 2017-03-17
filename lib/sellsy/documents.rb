@@ -175,7 +175,7 @@ module Sellsy
       if response['response']
         response['response'].each do |key, value|
           document = Document.new
-          document.id = value['id']
+          document.id = value['id'].to_i
           document.ident = value['ident']
           document.step = value['step']
           document.subject = value['subject']
