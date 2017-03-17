@@ -168,7 +168,10 @@ module Sellsy
           }
       }
       response = MultiJson.load(Sellsy::Api.request command)
+      puts "response"
+      puts response.inspect
       puts response['response'].inspect
+      documents = []
       if response['response']
         response['response']['result'].each do |key, value|
           document = Document.new
