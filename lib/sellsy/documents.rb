@@ -87,6 +87,7 @@ module Sellsy
                   'doctype' => document.doctype,
                   # 'parentId' => 'parentId',
                   'thirdid' => document.thirdid,
+                  'ownerid' => document.author,
                   # 'displayedDate' => 'displayedDate',
                   'subject' => document.subject,
                   'notes' => document.notes,
