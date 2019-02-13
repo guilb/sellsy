@@ -6,12 +6,12 @@
 
 Gem::Specification.new do |s|
   s.name = "sellsy"
-  s.version = "0.3.0.55"
+  s.version = "0.3.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["François Guilbert"]
-  s.date = "2017-01-10"
+  s.date = "2019-02-13"
   s.description = "Ruby Gem for Sellsy"
   s.email = "francois.guilbert@neoweb.fr"
   s.extra_rdoc_files = [

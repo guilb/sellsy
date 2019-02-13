@@ -4,7 +4,7 @@ source "http://rubygems.org"
 #   gem "activesupport", ">= 2.3.5"
 
 gem 'multi_json', '~> 1.11'  # JSON client
-gem 'rest-client', '~> 1.7.0'  # REST client
+gem 'rest-client', '~> 2.0.2'  # REST client
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
