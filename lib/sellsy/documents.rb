@@ -21,6 +21,7 @@ module Sellsy
 
     attr_accessor :doctype
     attr_accessor :thirdid
+    attr_accessor :thirdname
     attr_accessor :step
     attr_accessor :ident
     attr_accessor :subject
@@ -136,6 +137,7 @@ module Sellsy
     attr_accessor :ident
     attr_accessor :step
     attr_accessor :subject
+    attr_accessor :thirdname
     def self.search(params)
       command = {
           'method' => 'Document.getList',
@@ -153,6 +155,7 @@ module Sellsy
           document.ident = value['ident']
           document.step = value['step']
           document.subject = value['subject']
+          document.thirdname = value['thirdname']
           documents << document
         end
       end
